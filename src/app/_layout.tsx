@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@rneui/themed";
-import App from "../../App";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { Home } from "../screens/Home";
 
 const client = new ApolloClient({
   uri: "https://rickandmortyapi.com/graphql",
@@ -11,7 +11,7 @@ export default () => {
   return (
     <ApolloProvider client={client}>
       <ThemeProvider>
-        <App />
+        <Home />
       </ThemeProvider>
     </ApolloProvider>
   );
