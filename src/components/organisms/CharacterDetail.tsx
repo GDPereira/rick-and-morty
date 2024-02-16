@@ -1,9 +1,9 @@
 import { Card } from "@rneui/themed";
 import { StyleSheet } from "react-native";
-import { useCharacter } from "../hooks/useCharacter";
-import { CharacterListInfo } from "./CharacterListInfo";
-import { EpisodeInfo } from "./EpisodeInfo";
-import { LocationInfo } from "./LocationInfo";
+import { useCharacter } from "../../hooks/useCharacter";
+import { CharacterListInfo } from "../atoms/CharacterListInfo";
+import { EpisodeInfo } from "../molecules/EpisodeInfo";
+import { LocationInfo } from "../molecules/LocationInfo";
 
 interface CharacterDetailProps {
   characterId: string;

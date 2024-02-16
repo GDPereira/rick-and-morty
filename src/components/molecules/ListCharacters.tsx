@@ -1,6 +1,6 @@
 import { FlatList } from "react-native";
-import { Character, Maybe } from "../__generated__/graphql";
-import { CharacterItem } from "./CharacterItem";
+import { Character, Maybe } from "../../__generated__/graphql";
+import { CharacterItem } from "../atoms/CharacterItem";
 
 interface ListCharactersProps {
   data?: Maybe<Maybe<Character>[]>;

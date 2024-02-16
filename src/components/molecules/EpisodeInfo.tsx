@@ -1,7 +1,7 @@
 import { ListItem } from "@rneui/themed";
 import { useState } from "react";
-import { Episode, Maybe } from "../__generated__/graphql";
-import { EpisodeListItem } from "./EpisodeListItem";
+import { Episode, Maybe } from "../../__generated__/graphql";
+import { EpisodeListItem } from "../atoms/EpisodeListItem";
 
 interface EpisodeInfoProps {
   episodeList: Maybe<Episode>[];

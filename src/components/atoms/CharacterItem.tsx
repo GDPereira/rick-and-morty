@@ -2,7 +2,7 @@ import { Avatar, ListItem } from "@rneui/themed";
 import { useRouter } from "expo-router";
 import { useMemo } from "react";
 import { TouchableOpacity } from "react-native";
-import { Character, Maybe } from "../__generated__/graphql";
+import { Character, Maybe } from "../../__generated__/graphql";
 
 interface CharacterItemProps {
   character: Maybe<Character>;

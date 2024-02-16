@@ -1,6 +1,6 @@
 import { Card } from "@rneui/themed";
-import { CharacterListInfo } from "./CharacterListInfo";
-import { Maybe } from "../__generated__/graphql";
+import { CharacterListInfo } from "../atoms/CharacterListInfo";
+import { Maybe } from "../../__generated__/graphql";
 
 interface LocationInfoProps {
   name?: Maybe<string>;

@@ -1,7 +1,7 @@
 import { Card } from "@rneui/themed";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ListCharacters } from "../../components/ListCharacters";
-import { Loading } from "../../components/Loading";
+import { ListCharacters } from "../../components/molecules/ListCharacters";
+import { Loading } from "../../components/atoms/Loading";
 import { useCharacters } from "../../hooks/useCharacters";
 
 export const Home = () => {
