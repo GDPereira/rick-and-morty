@@ -11,7 +11,7 @@ export const ListCharacters = ({ data, getMoreData }: ListCharactersProps) => {
   return (
     <FlatList
       data={data}
-      ListHeaderComponentStyle={{ marginBottom: 10 }}
+      style={{ marginBottom: 100 }}
       renderItem={({ item }) => (
         <CharacterItem key={item?.id} character={item} />
       )}

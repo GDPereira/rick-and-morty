@@ -14,7 +14,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "query GetCharacter($id: ID!) {\n    character(id: $id) {\n      name\n      status\n      species\n      type\n      gender\n      location {\n        name\n        type\n      }\n      image\n      episode {\n        name\n        air_date\n        id\n      }\n    }\n  }": types.GetCharacterDocument,
-    "query GetCharacters($page: Int) {\n  characters(page: $page) {\n    info {\n      next\n    }\n    results {\n      id\n      name\n      image\n    }\n  }\n}": types.GetCharactersDocument,
+    "query GetCharacters($page: Int, $filter: FilterCharacter) {\n    characters(page: $page, filter: $filter) {\n      info {\n        count\n        pages\n        next\n        prev\n      }\n      results {\n        id\n        name\n        image\n      }\n    }\n  }": types.GetCharactersDocument,
 };
 
 /**
@@ -38,7 +38,7 @@ export function gql(source: "query GetCharacter($id: ID!) {\n    character(id: $
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "query GetCharacters($page: Int) {\n  characters(page: $page) {\n    info {\n      next\n    }\n    results {\n      id\n      name\n      image\n    }\n  }\n}"): (typeof documents)["query GetCharacters($page: Int) {\n  characters(page: $page) {\n    info {\n      next\n    }\n    results {\n      id\n      name\n      image\n    }\n  }\n}"];
+export function gql(source: "query GetCharacters($page: Int, $filter: FilterCharacter) {\n    characters(page: $page, filter: $filter) {\n      info {\n        count\n        pages\n        next\n        prev\n      }\n      results {\n        id\n        name\n        image\n      }\n    }\n  }"): (typeof documents)["query GetCharacters($page: Int, $filter: FilterCharacter) {\n    characters(page: $page, filter: $filter) {\n      info {\n        count\n        pages\n        next\n        prev\n      }\n      results {\n        id\n        name\n        image\n      }\n    }\n  }"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};

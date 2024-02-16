@@ -1,26 +1,34 @@
 import { useQuery } from "@apollo/client";
 import { gql } from "../__generated__";
 import { Characters } from "../__generated__/graphql";
+import { useFilterStore } from "../zustand/filter";
 
 const CHARACTERS_QUERY = gql(
-  `query GetCharacters($page: Int) {
-  characters(page: $page) {
-    info {
-      next
+  `query GetCharacters($page: Int, $filter: FilterCharacter) {
+    characters(page: $page, filter: $filter) {
+      info {
+        count
+        pages
+        next
+        prev
+      }
+      results {
+        id
+        name
+        image
+      }
     }
-    results {
-      id
-      name
-      image
-    }
-  }
-}`
+  }`
 );
 
 export const useCharacters = () => {
+  const { name } = useFilterStore();
   const { data, loading, fetchMore } = useQuery(CHARACTERS_QUERY, {
     variables: {
       page: 1,
+      filter: {
+        name,
+      },
     },
   });
 
