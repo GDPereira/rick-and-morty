@@ -1,7 +1,8 @@
 import { useQuery } from "@apollo/client";
 import { gql } from "../__generated__";
+import { Characters } from "../__generated__/graphql";
 
-export const CHARACTERS_QUERY = gql(
+const CHARACTERS_QUERY = gql(
   `query GetCharacters($page: Int) {
   characters(page: $page) {
     info {
@@ -23,9 +24,11 @@ export const useCharacters = () => {
     },
   });
 
-  const getMoreData = async () => {
+  const { results, info } = (data?.characters ?? {}) as Characters;
+
+  const getMoreData = () => {
     fetchMore({
-      variables: { page: data?.characters?.info?.next },
+      variables: { page: info?.next },
       updateQuery: (previousQueryResult, { fetchMoreResult }) => {
         if (!fetchMoreResult.characters?.results) {
           return previousQueryResult;
@@ -52,7 +55,7 @@ export const useCharacters = () => {
   };
 
   return {
-    data,
+    results,
     loading,
     getMoreData,
   };

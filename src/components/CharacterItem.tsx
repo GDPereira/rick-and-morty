@@ -1,27 +1,37 @@
 import { Avatar, ListItem } from "@rneui/themed";
+import { useRouter } from "expo-router";
+import { useMemo } from "react";
 import { TouchableOpacity } from "react-native";
+import { Character, Maybe } from "../__generated__/graphql";
 
 interface CharacterItemProps {
-  id?: string;
-  image?: string;
-  name?: string;
+  character: Maybe<Character>;
 }
 
-export const CharacterItem = ({ id, image, name }: CharacterItemProps) => {
-  return (
-    <ListItem
-      Component={TouchableOpacity}
-      bottomDivider
-      onPress={() => {
-        console.log("id :>> ", id);
-      }}
-      key={id}
-    >
-      <Avatar size={"medium"} rounded source={{ uri: image }} />
-      <ListItem.Content>
-        <ListItem.Title>{name}</ListItem.Title>
-      </ListItem.Content>
-      <ListItem.Chevron />
-    </ListItem>
+export const CharacterItem = ({ character }: CharacterItemProps) => {
+  const router = useRouter();
+
+  const handlePress = () => {
+    router.push(`character/${character?.id}`);
+  };
+
+  return useMemo(
+    () => (
+      <ListItem
+        Component={TouchableOpacity}
+        bottomDivider
+        onPress={handlePress}
+        key={character?.id}
+      >
+        {character?.image && (
+          <Avatar size={"medium"} rounded source={{ uri: character.image }} />
+        )}
+        <ListItem.Content>
+          <ListItem.Title>{character?.name}</ListItem.Title>
+        </ListItem.Content>
+        <ListItem.Chevron />
+      </ListItem>
+    ),
+    [character?.id]
   );
 };

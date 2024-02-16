@@ -1,26 +1,19 @@
-import { Text } from "@rneui/themed";
 import { FlatList } from "react-native";
-import { useCharacters } from "../hooks/useCharacters";
+import { Character, Maybe } from "../__generated__/graphql";
 import { CharacterItem } from "./CharacterItem";
 
-export const ListCharacters = () => {
-  const { data, getMoreData } = useCharacters();
+interface ListCharactersProps {
+  data?: Maybe<Maybe<Character>[]>;
+  getMoreData?: () => void;
+}
 
+export const ListCharacters = ({ data, getMoreData }: ListCharactersProps) => {
   return (
     <FlatList
-      data={data?.characters?.results}
-      ListHeaderComponent={
-        <Text h3 h3Style={{ textAlign: "center" }}>
-          Rick and Morty Characters
-        </Text>
-      }
+      data={data}
       ListHeaderComponentStyle={{ marginBottom: 10 }}
       renderItem={({ item }) => (
-        <CharacterItem
-          id={item?.id ?? ""}
-          image={item?.image ?? ""}
-          name={item?.name ?? ""}
-        />
+        <CharacterItem key={item?.id} character={item} />
       )}
       onEndReachedThreshold={0.2}
       onEndReached={getMoreData}

@@ -1,6 +1,6 @@
-import { ThemeProvider } from "@rneui/themed";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { Home } from "../screens/Home";
+import { ThemeProvider } from "@rneui/themed";
+import { Stack } from "expo-router";
 
 const client = new ApolloClient({
   uri: "https://rickandmortyapi.com/graphql",
@@ -11,7 +11,10 @@ export default () => {
   return (
     <ApolloProvider client={client}>
       <ThemeProvider>
-        <Home />
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name={"index"} />
+          <Stack.Screen name={"character/[character]"} />
+        </Stack>
       </ThemeProvider>
     </ApolloProvider>
   );
