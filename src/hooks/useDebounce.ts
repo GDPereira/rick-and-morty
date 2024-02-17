@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 
-export const useDebounce = (callback: (text: string) => void) => {
-  const [debouncedInputValue, setDebouncedInputValue] = useState<string>("");
+export const useDebounce = (
+  setDebouncedInputValue: (text: string) => void,
+  timer: number = 500
+) => {
+  const [inputValue, setInputValue] = useState<string>("");
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      callback(debouncedInputValue);
-    }, 800);
+      setDebouncedInputValue(inputValue);
+    }, timer);
     return () => clearTimeout(timeoutId);
-  }, [debouncedInputValue]);
+  }, [inputValue]);
 
   return {
-    debouncedInputValue,
-    setDebouncedInputValue,
+    inputValue,
+    setInputValue,
   };
 };

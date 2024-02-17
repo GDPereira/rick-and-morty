@@ -5,17 +5,19 @@ import { HeaderTitle } from "@components/molecules/HeaderTitle";
 import { CharacterDetail } from "@components/organisms/CharacterDetail";
 import { useCharacter } from "@hooks/useCharacter";
 import { useLocalSearchParams } from "expo-router";
+import { ErrorText } from "@components/atoms/Error";
 
 export const Detail = () => {
   const local = useLocalSearchParams();
   const characterId = `${local.character}`;
-  const { loading, name } = useCharacter(characterId);
+  const { loading, name, error } = useCharacter(characterId);
 
   return (
     <SafeAreaView>
       <HeaderTitle title={name ?? ""} />
       {loading && <Loading />}
-      {!loading && (
+      {error && <ErrorText />}
+      {!loading && !error && (
         <ScrollView>
           <CharacterDetail characterId={characterId} />
         </ScrollView>

@@ -23,7 +23,7 @@ const CHARACTERS_QUERY = gql(
 
 export const useCharacters = () => {
   const { name } = useFilterStore();
-  const { data, loading, fetchMore } = useQuery(CHARACTERS_QUERY, {
+  const { data, loading, error, fetchMore } = useQuery(CHARACTERS_QUERY, {
     variables: {
       page: 1,
       filter: {
@@ -65,6 +65,7 @@ export const useCharacters = () => {
   return {
     results,
     loading,
+    error,
     getMoreData,
   };
 };
