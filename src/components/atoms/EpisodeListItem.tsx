@@ -1,6 +1,6 @@
+import { Episode, Maybe } from "@generated/graphql";
 import { ListItem } from "@rneui/themed";
 import { useMemo } from "react";
-import { Episode, Maybe } from "../../__generated__/graphql";
 
 interface EpisodeListItemProps {
   episode?: Maybe<Episode>;

@@ -1,9 +1,9 @@
 import { ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { HeaderTitle } from "../../components/molecules/HeaderTitle";
-import { Loading } from "../../components/atoms/Loading";
-import { useCharacter } from "../../hooks/useCharacter";
-import { CharacterDetail } from "../../components/organisms/CharacterDetail";
+import { Loading } from "@components/atoms/Loading";
+import { HeaderTitle } from "@components/molecules/HeaderTitle";
+import { CharacterDetail } from "@components/organisms/CharacterDetail";
+import { useCharacter } from "@hooks/useCharacter";
 import { useLocalSearchParams } from "expo-router";
 
 export const Detail = () => {

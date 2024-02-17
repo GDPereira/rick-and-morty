@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
-import { gql } from "../__generated__";
-import { Character } from "../__generated__/graphql";
+import { gql } from "@generated/gql";
+import { Character } from "@generated/graphql";
 
 const CHARACTER_QUERY = gql(
   `query GetCharacter($id: ID!) {
@@ -31,18 +31,10 @@ export const useCharacter = (id: string) => {
     },
   });
 
-  const { name, status, species, type, gender, location, image, episode } =
-    (data?.character ?? {}) as Character;
+  const characterInfo = (data?.character ?? {}) as Character;
 
   return {
     loading,
-    name,
-    status,
-    species,
-    type,
-    gender,
-    location,
-    image,
-    episode,
+    ...characterInfo,
   };
 };

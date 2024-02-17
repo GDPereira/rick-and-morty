@@ -1,7 +1,7 @@
+import { EpisodeListItem } from "@components/atoms/EpisodeListItem";
+import { Episode, Maybe } from "@generated/graphql";
 import { ListItem } from "@rneui/themed";
 import { useState } from "react";
-import { Episode, Maybe } from "../../__generated__/graphql";
-import { EpisodeListItem } from "../atoms/EpisodeListItem";
 
 interface EpisodeInfoProps {
   episodeList: Maybe<Episode>[];
@@ -14,7 +14,7 @@ export const EpisodeInfo = ({ episodeList }: EpisodeInfoProps) => {
     <ListItem.Accordion
       content={
         <ListItem.Content>
-          <ListItem.Subtitle>List Episodes</ListItem.Subtitle>
+          <ListItem.Subtitle>Episodes List</ListItem.Subtitle>
         </ListItem.Content>
       }
       isExpanded={isExpanded}

@@ -1,3 +1,3 @@
-import { Detail } from "../../screens/Detail";
+import { Detail } from "@screens/Detail";
 
 export default Detail;

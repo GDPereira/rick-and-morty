@@ -1,6 +1,6 @@
+import { Maybe } from "@generated/graphql";
 import { Text } from "@rneui/themed";
 import { StyleSheet, View } from "react-native";
-import { Maybe } from "../../__generated__/graphql";
 
 interface CharacterListInfoProps {
   information: string;

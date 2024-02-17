@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
-import { gql } from "../__generated__";
-import { Characters } from "../__generated__/graphql";
-import { useFilterStore } from "../zustand/filter";
+import { gql } from "@generated/gql";
+import { Characters } from "@generated/graphql";
+import { useFilterStore } from "@zustand/filter";
 
 const CHARACTERS_QUERY = gql(
   `query GetCharacters($page: Int, $filter: FilterCharacter) {

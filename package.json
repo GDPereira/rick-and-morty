@@ -32,6 +32,7 @@
     "@graphql-codegen/client-preset": "^4.2.2",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@types/react": "~18.2.45",
+    "babel-plugin-module-resolver": "^5.0.0",
     "typescript": "^5.3.3"
   },
   "private": true
