@@ -1,4 +1,4 @@
-import { Maybe } from "@generated/graphql";
+import type { Maybe } from "@generated/graphql";
 import { Text } from "@rneui/themed";
 import { StyleSheet, View } from "react-native";
 

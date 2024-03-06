@@ -10,7 +10,9 @@ export const HeaderTitle = ({ title }: HeaderTitleProps) => {
   const router = useRouter();
 
   const handleBackPress = () => {
-    router.canGoBack() && router.back();
+    if (router.canGoBack()) {
+      router.back();
+    }
   };
 
   return (

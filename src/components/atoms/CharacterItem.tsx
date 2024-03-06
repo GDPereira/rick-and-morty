@@ -1,4 +1,4 @@
-import { Character, Maybe } from "@generated/graphql";
+import type { Character, Maybe } from "@generated/graphql";
 import { Avatar, ListItem } from "@rneui/themed";
 import { useRouter } from "expo-router";
 import { useMemo } from "react";
@@ -32,6 +32,6 @@ export const CharacterItem = ({ character }: CharacterItemProps) => {
         <ListItem.Chevron />
       </ListItem>
     ),
-    [character?.id]
+    [character?.id],
   );
 };

@@ -9,7 +9,7 @@ import { ErrorText } from "@components/atoms/Error";
 
 export const Detail = () => {
   const local = useLocalSearchParams();
-  const characterId = `${local.character}`;
+  const characterId = `${local.character as string}`;
   const { loading, name, error } = useCharacter(characterId);
 
   return (

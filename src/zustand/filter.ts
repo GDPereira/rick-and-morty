@@ -17,6 +17,8 @@ export const useFilterStore = create<FilterStore>()((set) => {
 
   return {
     ...initialState,
-    setName: (name: string) => set({ name }),
+    setName: (name: string) => {
+      set({ name });
+    },
   };
 });

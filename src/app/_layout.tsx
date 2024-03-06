@@ -7,7 +7,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-export default () => {
+const App = () => {
   return (
     <ApolloProvider client={client}>
       <ThemeProvider>
@@ -19,3 +19,5 @@ export default () => {
     </ApolloProvider>
   );
 };
+
+export default App;

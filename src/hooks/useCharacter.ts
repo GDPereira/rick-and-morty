@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { gql } from "@generated/gql";
-import { Character } from "@generated/graphql";
+import type { Character } from "@generated/graphql";
 
 const CHARACTER_QUERY = gql(
   `query GetCharacter($id: ID!) {
@@ -21,13 +21,13 @@ const CHARACTER_QUERY = gql(
         id
       }
     }
-  }`
+  }`,
 );
 
 export const useCharacter = (id: string) => {
   const { data, loading, error } = useQuery(CHARACTER_QUERY, {
     variables: {
-      id: id,
+      id,
     },
   });
 

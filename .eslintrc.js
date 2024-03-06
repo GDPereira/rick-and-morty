@@ -43,5 +43,6 @@ module.exports = {
         multiline: { delimiter: "semi" },
       },
     ],
+    "eol-last": ["off"],
   },
 };

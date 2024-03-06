@@ -1,10 +1,10 @@
 import { EpisodeListItem } from "@components/atoms/EpisodeListItem";
-import { Episode, Maybe } from "@generated/graphql";
+import type { Episode, Maybe } from "@generated/graphql";
 import { ListItem } from "@rneui/themed";
 import { useState } from "react";
 
 interface EpisodeInfoProps {
-  episodeList: Maybe<Episode>[];
+  episodeList: Array<Maybe<Episode>>;
 }
 
 export const EpisodeInfo = ({ episodeList }: EpisodeInfoProps) => {
@@ -18,15 +18,12 @@ export const EpisodeInfo = ({ episodeList }: EpisodeInfoProps) => {
         </ListItem.Content>
       }
       isExpanded={isExpanded}
-      onPress={() => setIsExpanded(!isExpanded)}
+      onPress={() => {
+        setIsExpanded(!isExpanded);
+      }}
     >
       {episodeList.map((episode) => {
-        return (
-          <EpisodeListItem
-            key={episode?.id}
-            episode={episode}
-          />
-        );
+        return <EpisodeListItem key={episode?.id} episode={episode} />;
       })}
     </ListItem.Accordion>
   );

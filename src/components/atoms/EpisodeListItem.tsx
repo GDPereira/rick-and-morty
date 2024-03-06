@@ -1,4 +1,4 @@
-import { Episode, Maybe } from "@generated/graphql";
+import type { Episode, Maybe } from "@generated/graphql";
 import { ListItem } from "@rneui/themed";
 import { useMemo } from "react";
 
@@ -16,6 +16,6 @@ export const EpisodeListItem = ({ episode }: EpisodeListItemProps) => {
         </ListItem.Content>
       </ListItem>
     ),
-    [episode?.id]
+    [episode?.id],
   );
 };

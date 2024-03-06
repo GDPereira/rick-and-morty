@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { gql } from "@generated/gql";
-import { Characters } from "@generated/graphql";
+import type { Characters } from "@generated/graphql";
 import { useFilterStore } from "@zustand/filter";
 
 const CHARACTERS_QUERY = gql(
@@ -18,7 +18,7 @@ const CHARACTERS_QUERY = gql(
         image
       }
     }
-  }`
+  }`,
 );
 
 export const useCharacters = () => {
@@ -35,7 +35,7 @@ export const useCharacters = () => {
   const { results, info } = (data?.characters ?? {}) as Characters;
 
   const getMoreData = () => {
-    fetchMore({
+    void fetchMore({
       variables: { page: info?.next },
       updateQuery: (previousQueryResult, { fetchMoreResult }) => {
         if (!fetchMoreResult.characters?.results) {
@@ -49,10 +49,12 @@ export const useCharacters = () => {
 
         newResults.forEach((newResult) => {
           const existsInList = oldResults.some(
-            (oldResult) => newResult?.id === oldResult?.id
+            (oldResult) => newResult?.id === oldResult?.id,
           );
 
-          !existsInList && mergedResults.push(newResult);
+          if (!existsInList) {
+            mergedResults.push(newResult);
+          }
         });
 
         fetchMoreResult.characters.results = mergedResults;
