@@ -37,5 +37,11 @@ module.exports = {
       { extensions: [".js", ".jsx", ".ts", ".tsx"] },
     ],
     "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        multiline: { delimiter: "semi" },
+      },
+    ],
   },
 };

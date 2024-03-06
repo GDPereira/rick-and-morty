@@ -1,9 +1,9 @@
 import { CharacterItem } from "@components/atoms/CharacterItem";
-import { Character, Maybe } from "@generated/graphql";
+import type { Character, Maybe } from "@generated/graphql";
 import { FlatList } from "react-native";
 
 interface ListCharactersProps {
-  data?: Maybe<Maybe<Character>[]>;
+  data?: Maybe<Array<Maybe<Character>>>;
   getMoreData?: () => void;
 }
 
